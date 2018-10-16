@@ -1,0 +1,63 @@
+.wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px #eee;
+
+    .Container {
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .Timer {
+            margin-bottom: 20px;
+            font-size: 32px;
+
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            background: cornflowerblue;
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .TimerStart {
+            margin-right: 10px;
+            background: #529735;
+        }
+
+        .TimerStop {
+            background: #353D79;
+        }
+
+        .trackerDailyHistory {
+            list-style-type: none;
+            margin: 20px 0 20px;
+            padding: 0;
+        }
+
+        .Total {
+            font-weight: 700;
+            font-size: 22px;
+            width: 100%;
+            text-align: right;
+            padding-right: 30px;
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,50 @@
+{
+    "name": "vahe2",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack-dev-server --watch --progress",
+        "build": "webpack --mode production -p --progress",
+        "production": "webpack-dev-server --watch -p --progress",
+        "prestart": "yarn install --prefer-offline --frozen-lockfile",
+        "prebuild": "yarn install --prefer-offline --frozen-lockfile",
+        "preproduction": "yarn install --prefer-offline --frozen-lockfile"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/plugin-proposal-class-properties": "^7.1.0",
+        "@babel/plugin-proposal-decorators": "^7.1.2",
+        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+        "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "autoprefixer": "^9.1.5",
+        "babel-loader": "^8.0.4",
+        "cache-loader": "^1.2.2",
+        "clean-webpack-plugin": "^0.1.19",
+        "copy-webpack-plugin": "^4.5.2",
+        "css-loader": "^1.0.0",
+        "cssnano": "^4.1.4",
+        "html-webpack-plugin": "^3.2.0",
+        "imagemin-webpack-plugin": "^2.3.0",
+        "mini-css-extract-plugin": "^0.4.3",
+        "node-sass": "^4.9.3",
+        "postcss-loader": "^3.0.0",
+        "postcss-url": "^8.0.0",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.0",
+        "uglifyjs-webpack-plugin": "^2.0.1",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.1.9",
+        "write-file-webpack-plugin": "^4.4.1"
+    },
+    "dependencies": {
+        "@material-ui/core": "^3.2.2",
+        "prop-types": "^15.6.2",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
+    }
+}
