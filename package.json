@@ -1,8 +1,8 @@
 {
-    "name": "vahe2",
+    "name": "time-tracker",
     "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
+    "license": "UNLICENSED",
+    "private": true,
     "scripts": {
         "start": "webpack-dev-server --watch --progress",
         "build": "webpack --mode production -p --progress",
