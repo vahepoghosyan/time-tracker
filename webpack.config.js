@@ -38,7 +38,7 @@ module.exports = (env, { mode = 'development' }) => {
             publicPath: '/static/',
         },
         resolve: {
-            extensions: [ '.js', '.jsx', '.scss', '.css', '.json' ],
+            extensions: ['.js', '.jsx', '.scss', '.css', '.json'],
             modules: [
                 here('./node_modules'),
             ],
@@ -65,12 +65,12 @@ module.exports = (env, { mode = 'development' }) => {
                                 plugins: [
                                     '@babel/plugin-syntax-dynamic-import',
                                     '@babel/plugin-syntax-object-rest-spread',
-                                    [ '@babel/plugin-proposal-decorators', { legacy: true } ],
+                                    ['@babel/plugin-proposal-decorators', { legacy: true }],
                                     '@babel/plugin-proposal-object-rest-spread',
                                     '@babel/plugin-proposal-class-properties',
                                 ],
                                 presets: [
-                                    [ '@babel/preset-react' ],
+                                    ['@babel/preset-react'],
                                     [
                                         '@babel/preset-env',
                                         {
@@ -203,7 +203,7 @@ module.exports = (env, { mode = 'development' }) => {
         optimization: {
             splitChunks: {
                 automaticNameDelimiter: '/',
-                name: (module, chunk) => chunk[ 0 ].name,
+                name: (module, chunk) => chunk[0].name,
             },
             minimizer: [
                 new UglifyJsPlugin({
