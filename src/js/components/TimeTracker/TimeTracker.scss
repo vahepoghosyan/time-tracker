@@ -19,26 +19,8 @@
 
         }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            background: cornflowerblue;
-            color: #fff;
-            cursor: pointer;
-            outline: none;
-
-            &:hover {
-                opacity: 0.8;
-            }
-        }
-
         .TimerStart {
             margin-right: 10px;
-            background: #529735;
-        }
-
-        .TimerStop {
-            background: #353D79;
         }
 
         .trackerDailyHistory {

@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import './TimeTracker.scss';
 import { createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -17,9 +18,9 @@ function TabContainer(props) {
     );
 }
 
-const theme = createMuiTheme({
-    typography: {
-        useNextVariants: true,
+const styles = (theme) => ({
+    button: {
+        margin: theme.spacing.unit,
     },
     palette: {
         primary: blue,
@@ -49,8 +50,8 @@ class TimeTracker extends React.Component {
         trackerDailyHistory: [],
     };
 
-    startTracker = () => {
         if (!this.state.isStarted) {
+    handleStartTracker = () => {
             const date = new Date();
             let second = 1;
             let minute = 0;
@@ -113,7 +114,6 @@ class TimeTracker extends React.Component {
         }
     };
 
-    endTracker = () => {
         if (this.state.isStarted) {
             const date = new Date();
             const timeTrackerData = JSON.parse(localStorage.getItem('TimeTrackerData'));
@@ -122,6 +122,7 @@ class TimeTracker extends React.Component {
             const currentHour = date.getHours().toString().length !== 2 ? `0${date.getHours().toString()}` : date.getHours().toString();
 
             const currentTime = `${currentHour} : ${currentMinute} : ${currentSecond}`;
+    handleEndTracker = () => {
 
             const currentTotalDate = `${this.state.timer.hour} : ${this.state.timer.minute} : ${this.state.timer.second}`;
             const trackerDailyHistory = [...this.state.trackerDailyHistory];
@@ -193,8 +194,21 @@ class TimeTracker extends React.Component {
                     <div className="Container">
                         <div className="Timer">{timer}</div>
                         <div>
-                            <button className="btn TimerStart" onClick={this.startTracker}>Start</button>
-                            <button className="btn TimerStop" onClick={this.endTracker}>Stop</button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={this.handleStartTracker}
+                            >
+                                Start
+                            </Button>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                onClick={this.handleEndTracker}
+                            >
+                                Stop
+                            </Button>
                         </div>
                         <ul className="trackerDailyHistory">{trackerDailyHistoryItems}</ul>
                         <div className="Total">{totalTime}</div>
@@ -212,4 +226,4 @@ TimeTracker.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(theme)(TimeTracker);
+export default withStyles(styles)(TimeTracker);
