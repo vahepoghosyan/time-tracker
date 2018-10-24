@@ -7,7 +7,9 @@
     box-shadow: 5px 5px 10px #eee;
 
     .Container {
+        width: 100%;
         min-height: 300px;
+        padding: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
