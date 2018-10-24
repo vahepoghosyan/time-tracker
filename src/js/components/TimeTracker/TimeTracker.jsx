@@ -31,12 +31,6 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-// const styles = theme => ({
-//     root: {
-//         flexGrow: 1,
-//         backgroundColor: theme.palette.background.paper,
-//     },
-// });
 
 class TimeTracker extends React.Component {
     state = {
@@ -134,7 +128,6 @@ class TimeTracker extends React.Component {
             timeTrackerData[timeTrackerData.length - 1].trackTime = `${this.state.timer.hour} : ${this.state.timer.minute} : ${this.state.timer.second}`;
 
             localStorage.setItem('TimeTrackerData', JSON.stringify(timeTrackerData));
-            // localStorage.setItem('TimeTrackerData', JSON.stringify(dailyDeltaTime));
             clearInterval(this.intervalState);
 
             this.setState({
@@ -144,7 +137,6 @@ class TimeTracker extends React.Component {
                     second: '00',
                 },
                 isStarted: false,
-                intervalState: null,
                 trackerDailyHistory,
             });
         }
@@ -185,8 +177,6 @@ class TimeTracker extends React.Component {
                 <AppBar position="static">
                     <Tabs value={value} onChange={this.handleChange}>
                         <Tab label="Daily Time Tracker" />
-                        <Tab label="Item Two" />
-                        <Tab label="Item Three" />
                     </Tabs>
                 </AppBar>
                 {value === 0 && (
@@ -215,8 +205,6 @@ class TimeTracker extends React.Component {
                     </div>
                 </TabContainer>
                 )}
-                {value === 1 && <TabContainer>Item Two</TabContainer>}
-                {value === 2 && <TabContainer>Item Three</TabContainer>}
             </div>
         );
     }
