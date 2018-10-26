@@ -36,9 +36,6 @@ class TimeTracker extends React.Component {
 
         const seconds = parseInt(timer) - hour * 3600 - minute * 60;
 
-        return `${hour.toString().padStart(2, '0')} : 
-                ${minute.toString().padStart(2, '0')} : 
-                ${seconds.toString().padStart(2, '0')}`;
     };
 
     getDate = (time) => {
@@ -47,13 +44,7 @@ class TimeTracker extends React.Component {
         let currentDate = '';
 
         if (time) {
-            currentTime = `${date.getHours().toString().padStart(2, '0')} :
-                           ${date.getMinutes().toString().padStart(2, '0')} :
-                           ${date.getSeconds().toString().padStart(2, '0')}`;
         } else {
-            currentDate = `${date.getDate().toString().padStart(2, '0')} : 
-                           ${date.getMonth().toString().padStart(2, '0')} : 
-                           ${date.getFullYear().toString().padStart(2, '0')}`;
         }
 
         return currentTime || currentDate;
@@ -147,7 +138,8 @@ class TimeTracker extends React.Component {
         const date = new Date();
 
         const totalSummarySecondFromStorage = getTimeTrackerDailyData ?
-            getTimeTrackerDailyData.map((item) => (date.getDate().toString() === item.date.slice(0, 2) ? item.delta : 0))
+            getTimeTrackerDailyData.map((item) => (date.getDate().toString() === item.date.slice(0, 2) ?
+                item.delta : 0))
                 .reduce((accumulator, currentValue) => accumulator + currentValue) : 0;
 
         const trackerDailyHistory = getTimeTrackerDailyData ?
