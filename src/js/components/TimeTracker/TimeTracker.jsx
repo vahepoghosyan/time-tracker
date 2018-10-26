@@ -36,6 +36,7 @@ class TimeTracker extends React.Component {
 
         const seconds = parseInt(timer) - hour * 3600 - minute * 60;
 
+        return `${hour.toString().padStart(2, '0')} : ${minute.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
     };
 
     getDate = (time) => {
@@ -44,7 +45,9 @@ class TimeTracker extends React.Component {
         let currentDate = '';
 
         if (time) {
+            currentTime = `${date.getHours().toString().padStart(2, '0')} : ${date.getMinutes().toString().padStart(2, '0')} : ${date.getSeconds().toString().padStart(2, '0')}`;
         } else {
+            currentDate = `${date.getDate().toString().padStart(2, '0')} : ${date.getMonth().toString().padStart(2, '0')} : ${date.getFullYear().toString().padStart(2, '0')}`;
         }
 
         return currentTime || currentDate;
@@ -68,6 +71,8 @@ class TimeTracker extends React.Component {
 
             const currentDate = this.getDate();
 
+            const startDateTime = new Date().getTime() / 1000;
+
             const temporaryValue = [
                 {
                     temporary: {
@@ -86,6 +91,10 @@ class TimeTracker extends React.Component {
 
             this.intervalState = setInterval(() => {
                 timerSecond += 1;
+
+                const currentTime = new Date().getTime() / 1000;
+
+                console.log(this.summaryCounter(currentTime - startDateTime));
                 totalSummarySecond += 1;
 
                 const endTime = this.getDate(true);
